@@ -1,0 +1,5 @@
+__pycache__
+.vscode
+*.pkl
+Pipfile
+Pipfile.lock

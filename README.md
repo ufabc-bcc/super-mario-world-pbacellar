@@ -1,5 +1,16 @@
 # Projeto 2: Super Mario World - Inteligência Artificial - 2021.Q1
 
+
+refs
+
+https://dev.to/codemouse92/dead-simple-python-project-structure-and-imports-38c6
+
+
+
+
+
+
+
 Prof. Fabrício Olivetti de França (folivetti@ufabc.edu.br)
 
 ## Enunciado

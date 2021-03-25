@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # marioAstar.py
 # Author: Fabrício Olivetti de França
 #
