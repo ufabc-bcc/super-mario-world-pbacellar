@@ -21,7 +21,7 @@ moves = {'direita':128, 'corre':130, 'pula':131, 'spin':386, 'esquerda':64}
 raio = 6
 
 # Se devemos mostrar a tela do jogo (+ lento) ou não (+ rápido)
-mostrar = True
+mostrar = False
 
 # Classe da árvore de jogos para o Super Mario World
 class Tree:
@@ -173,7 +173,7 @@ def astar():
  
     # Gera a árvore com o estado inicial do jogo 
     global env
-    env = retro.make(game='SuperMarioWorld-Snes', state='YoshiIsland1', players=1)
+    env = retro.make(game='SuperMarioWorld-Snes', state='YoshiIsland1', players=1, record='bk2')
         
     env.reset()
     estado, x, y = getState(getRam(env), raio)
@@ -196,7 +196,6 @@ def astar():
         fw.close()
         
     obj, acoes = atingiuObj(tree)
-    mostrar = True
     emula(acoes)
 
     return tree

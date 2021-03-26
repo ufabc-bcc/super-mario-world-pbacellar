@@ -1,5 +1,8 @@
 __pycache__
 .vscode
 *.pkl
-Pipfile
-Pipfile.lock
+*Pipfile*
+*.png
+*.code-workspace
+*bk2*
+resources/
