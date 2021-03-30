@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 """
 Author: Pedro Braga dos Santos Bacellar
 Script para visualizar uma rodada jogada pelo agente ou varias rodadas passadas em uma mesma janela de visualização
