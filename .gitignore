@@ -1,8 +1,7 @@
-__pycache__
-.vscode
-*.pkl
-*Pipfile*
-*.png
 *.code-workspace
-*bk2*
+.vscode
+
+*.pkl
+__pycache__/
 resources/
+sample-reference-agents/bk2/

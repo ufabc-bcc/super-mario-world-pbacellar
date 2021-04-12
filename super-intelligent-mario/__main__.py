@@ -8,8 +8,8 @@ print(os.getcwd())
 
 
 def main():
-
-    proc = subprocess.Popen(["python", "-u", "../sample_reference_agents/marioRule.py"])
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    proc = subprocess.Popen(["python3", "-u", "../sample-reference-agents/marioRule.py"], cwd=dir_path)
 
     while proc:
         try:

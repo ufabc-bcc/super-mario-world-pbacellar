@@ -36,7 +36,13 @@ from os.path import isfile, join, isdir
 from gym.envs.classic_control import rendering
 
 def render(file):
-    movie = retro.Movie(file)
+    try:
+        movie = retro.Movie(file)
+    except Exception as e:
+        print(e)
+        print(file)
+        exit()
+
     movie.step()
     env = retro.make(game=movie.get_game(), state=retro.State.NONE, use_restricted_actions=retro.Actions.ALL)
     env.initial_state = movie.get_state()   

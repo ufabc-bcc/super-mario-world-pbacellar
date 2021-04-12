@@ -64,7 +64,10 @@ def getTile(dx,dy,ram):
   
   # 0x1C800 indica para cada pixel se é um obstáculo ou não
   # como obter o ponto certo foi retirado daqui: https://www.smwcentral.net/?p=viewthread&t=78887
-  return ram[0x1C800 + np.int(np.floor(x/16)*432 + y*16 + x%16)]
+  # return ram[0x1C800 + np.int(np.floor(x/16)*432 + y*16 + x%16)]
+
+  # O endereço correto é 0x1F000, contribuição de Fernando Teixeira
+  return ram[0x1F000 + np.int(np.floor(x/16)*432 + y*16 + x%16)]
   
 def getInputs(ram, radius=6):
   '''
