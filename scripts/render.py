@@ -35,6 +35,7 @@ from os import listdir
 from os.path import isfile, join, isdir
 from gym.envs.classic_control import rendering
 
+played_frames=0
 def render(file):
     try:
         movie = retro.Movie(file)
@@ -62,6 +63,12 @@ def render(file):
         for i in range(env.num_buttons):
             keys.append(movie.get_key(i, 0))
         _obs, _rew, _done, _info = env.step(keys)
+        
+        # renderiza os primeiros frames e para, esperando o usuario estar pronto para dar play no processo
+        global played_frames
+        played_frames += 1
+        if(played_frames == 3):
+            input("press enter to start")
 
 
 viewer = rendering.SimpleImageViewer()
@@ -69,7 +76,7 @@ if isdir(sys.argv[1]):
     onlyfiles = [f for f in listdir(sys.argv[1]) if isfile(join(sys.argv[1], f))]
     onlyfiles.sort()
     for file in onlyfiles:
-        if ".bk2" in file :
+        if ".bk2" in file:
             print('playing', file)
             render(sys.argv[1]+file)
 else:
