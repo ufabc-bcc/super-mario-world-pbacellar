@@ -10,3 +10,7 @@ gym-retro = "*"
 
 [requires]
 python_version = "3.8"
+
+[scripts]
+main = "python -u super-intelligent-mario"
+render = "python -u scripts/render.py"
