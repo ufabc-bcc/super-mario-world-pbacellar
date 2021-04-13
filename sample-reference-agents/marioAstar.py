@@ -14,7 +14,7 @@ import retro
 from rominfo import *
 from utils import *
 
-sys.setrecursionliFmit(10000)
+sys.setrecursionlimit(10000)
 
 # quais movimentos estarão disponíveis
 moves = {"direita": 128, "corre": 130, "pula": 131, "spin": 386, "esquerda": 64}
@@ -23,7 +23,7 @@ moves = {"direita": 128, "corre": 130, "pula": 131, "spin": 386, "esquerda": 64}
 raio = 6
 
 # Se devemos mostrar a tela do jogo (+ lento) ou não (+ rápido)
-mostrar = False
+mostrar = True
 
 # Classe da árvore de jogos para o Super Mario World
 class Tree:
