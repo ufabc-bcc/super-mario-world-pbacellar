@@ -85,7 +85,7 @@ def rule():
             else:
                 ob, rew, done, info = env.step(dec2bin(128))
                 total_reward += rew
-            #env.render()
+            env.render()
             print(info)
     return total_reward
 

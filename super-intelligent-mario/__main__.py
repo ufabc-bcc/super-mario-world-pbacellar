@@ -1,26 +1,36 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import subprocess
-import os
+import sys
+import getopt
+from core import play
+from core import train
 
-print(os.getcwd())
+def main(argv):
+    try:
+        opts, args = getopt.getopt(argv, 'h', ["",])
+    except getopt.GetoptError:
+        print("ERROR: Missing argument")
+        print('Corrct usage is: python3 super-intelligent-mario <opMode>')
+        print("opMode can be 'train' or 'play'")
+        exit(2)
 
+    for opt, arg in opts:
+        if opt == '-h':
+            print('python3 super-intelligent-mario <opMode>')
+            print("opMode can be 'train' or 'play'")
+            exit(0)
 
-def main():
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    proc = subprocess.Popen(["python3", "-u", "../sample-reference-agents/marioRule.py"], cwd=dir_path)
-
-    while proc:
-        try:
-            sig = input("type q to quit\n")
-            if sig == "q":
-                proc.kill()
-                quit()
-        except KeyboardInterrupt:
-            proc.kill()
-            quit()
+    if(args[0] == "train"):
+        train.train()
+    elif(args[0] == "play"):
+        play.play()
+    else:
+        print("wrong options")
+        print('Corrct usage is: python3 super-intelligent-mario <opMode>')
+        print("opMode can be 'train' or 'play'")
+    return
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1:])
