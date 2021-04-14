@@ -1,6 +1,6 @@
 *.code-workspace
 .vscode
-
+neat-examples
 *.pkl
 __pycache__/
 resources/

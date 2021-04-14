@@ -5,8 +5,13 @@ name = "pypi"
 
 [packages]
 gym-retro = "*"
+neat-python = "*"
 
 [dev-packages]
+graphviz = "*"
+matplotlib = "*"
+gizeh = "*"
+moviepy = "*"
 
 [requires]
 python_version = "3.8"

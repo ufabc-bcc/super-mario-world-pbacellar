@@ -11,6 +11,13 @@ titlepage: true
 
 refs
 
+https://retro.readthedocs.io/en/latest/integration.html
+
+https://medium.com/aureliantactics/integrating-new-games-into-retro-gym-12b237d3ed75
+
+https://medium.com/aureliantactics/setting-up-a-reward-function-in-retro-gym-and-other-utilities-886491849353
+
+
 https://dev.to/codemouse92/dead-simple-python-project-structure-and-imports-38c6
 
 https://docs.python-guide.org/writing/structure/#structure-of-the-repository
