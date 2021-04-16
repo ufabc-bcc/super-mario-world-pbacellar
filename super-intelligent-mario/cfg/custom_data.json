@@ -15,6 +15,10 @@
         "distance": {
             "address": 148,
             "type": "<u2"
+        },
+        "death": {
+            "address": 8257688,
+            "type": "<u4"
         }
     }
 }

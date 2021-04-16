@@ -3,8 +3,8 @@
 
 import sys
 import getopt
-from core import play
-from core import train
+from play import *
+from train import *
 
 def main(argv):
     try:
@@ -22,9 +22,9 @@ def main(argv):
             exit(0)
 
     if(args[0] == "train"):
-        train.train()
+        train()
     elif(args[0] == "play"):
-        play.play()
+        play()
     else:
         print("wrong options")
         print('Corrct usage is: python3 super-intelligent-mario <opMode>')

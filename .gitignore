@@ -1,7 +1,8 @@
-*.code-workspace
-.vscode
-neat-examples
-*.pkl
+neat-examples/
+tests/
 __pycache__/
 resources/
 sample-reference-agents/bk2/
+.vscode/
+*.code-workspace
+*.pkl

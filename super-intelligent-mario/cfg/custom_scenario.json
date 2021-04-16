@@ -7,9 +7,9 @@
     ],
     "done": {
       "variables": {
-        "lives": {
+        "death": {
           "op": "equal",
-          "reference": -1
+          "reference": 0
         }
       }
     },
