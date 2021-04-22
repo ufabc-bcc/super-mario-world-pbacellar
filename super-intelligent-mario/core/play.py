@@ -20,7 +20,7 @@ Can be run as a module with python3 -m
 """
 
 
-def play(file=None, timeout=True, viewer=None, speed=2):
+def play(file=None, timeout=True, viewer=None, env = None, speed=2):
     if file:
         winner_path = file
     else:
@@ -45,14 +45,16 @@ def play(file=None, timeout=True, viewer=None, speed=2):
         #os.path.join(PROJ_DIR, "neat-config-screen"),
         
     )
+    if not env:
+        env = retro.make(
+            game="SuperMarioWorld-Snes",
+            info=os.path.join(PROJ_DIR, "custom_data.json"),  # in-game variables and their addresses
+            state="YoshiIsland2",
+            players=1,
+            # record=os.path.join(PROJ_DIR, "results","recordings") # create a bk2 of the winner
+        )
 
-    env = retro.make(
-        game="SuperMarioWorld-Snes",
-        info=os.path.join(PROJ_DIR, "custom_data.json"),  # in-game variables and their addresses
-        state="YoshiIsland2",
-        players=1,
-        # record=PROJ_DIR # create a bk2 of the winner
-    )
+    
     if not viewer:
         viewer = rendering.SimpleImageViewer()
     transition = np.zeros((224, 256, 3))
