@@ -13,14 +13,15 @@ genomes must be saved in the formate "best-xx.pkl" where xx is number. Script us
 MUST BE RUN WITH PYTHON's -m OPTION
 
 HOW TO USE:
-python3 -m play_notable_pkl [path_to_folder] [option]
+python3 -m play_notable_pkl [option] [speed]
 
 OPTIONS:
     best:   plays best genomes
     worst:  plays worst genomes
+    speed:  plays at this speed
 
-python3 -m super-intelligent-mario.scripts.play_notable_pkl path_to_folder best
-python3 -m super-intelligent-mario.scripts.play_notable_pkl path_to_folder worst
+python3 -m super-intelligent-mario.scripts.play_notable_pkl best
+python3 -m super-intelligent-mario.scripts.play_notable_pkl worst
 
 """
 
@@ -51,10 +52,8 @@ def key(file):
 
 best.sort(key=key)
 worst.sort(key=key)
-
 if len(sys.argv) <= 1:
     print("INPUT ERROR:")
-    print("specify folder")
     print("specify what to play, 'best' or 'worst'")
     exit(1)
 

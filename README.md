@@ -83,9 +83,9 @@ O melhor genoma treinado até agora é o `winner.pkl` e encontra-se na pasta `be
 
 * `play_notable_pkl`
 
-    Após rodar um treinamento, é possível reprodozuir todos os melhors ou piores genomas para acompanhar a evolução do agente. O script reproduz do primeiro genoma ao último
-  * ```python3 -m super-intelligent-mario.scripts.play_notable_pkl [PASTA_COM_PKLS] [BEST|WORST]```
-  * ```pipenv run play_notable [PASTA_COM_PKLS] [best|worst]```
+    Após rodar um treinamento, é possível reprodozuir todos os melhores ou piores genomas para acompanhar a evolução do agente. O script reproduz do primeiro genoma ao último
+  * ```python3 -m super-intelligent-mario.scripts.play_notable_pkl [BEST|WORST] [velocidade]```
+  * ```pipenv run play_notable [best|worst] [velocidade]```
 
 * `render_movies`
 
