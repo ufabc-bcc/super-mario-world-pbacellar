@@ -10,7 +10,8 @@ github: [pbacellar](https://github.com/pbacellar)
 
 ## TL;DR:
 
-Video [https://youtu.be/w46w_6PJ0DY](https://youtu.be/w46w_6PJ0DY)
+Video [https://youtu.be/w46w_6PJ0DY](https://youtu.be/w46w_6PJ0DY)<br>
+(Oops, soh percebi depois que a janela do playback do mario ficou fora do video...)
 
 Todos os comandos a partir da raiz do repo:
 
