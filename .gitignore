@@ -1,8 +1,16 @@
-neat-examples/
-tests/
-__pycache__/
-resources/
-sample-reference-agents/bk2/
-.vscode/
+.vscode
+neat-examples
+resources
+profs_reference
 *.code-workspace
-*.pkl
+.markdownlint.json
+
+# neat-examples/
+# tests/
+# __pycache__/
+# resources/
+# sample-reference-agents/bk2/
+# .vscode/
+# *.code-workspace
+# *.pkl
+#*.bk2

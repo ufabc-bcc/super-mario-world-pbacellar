@@ -1,0 +1,53 @@
+{
+    "info": {
+        "x_pos": {
+            "address": 148,
+            "type": "<u2"
+        },
+        "score": {
+            "address": 8261428,
+            "type": "<u4"
+        },
+        "checkpoint": {
+            "address": 5070,
+            "type": "|i1"
+        },
+        "coins": {
+            "address": 8261055,
+            "type": "|u1"
+        },
+        "yoshi_coins": {
+            "address": 8262690,
+            "type": "<u4"
+        },
+        "level_finish": {
+            "address": 8259846,
+            "type": "|i1"
+        },
+        "death": {
+            "address": 8257649,
+            "type": "|u1"
+        },
+
+        "lives": {
+            "address": 8261054,
+            "type": "|i1"
+        },
+        "time_hundreds": {
+            "address": 8261425,
+            "type": "|u1"
+        },
+        "time_tens": {
+            "address": 8261426,
+            "type": "|u1"
+        },
+        "time_units": {
+            "address": 8261427,
+            "type": "|u1"
+        },
+        "game_frames": {
+            "address": 8261424,
+            "type": "|u1"
+        }
+    }
+}

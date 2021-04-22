@@ -1,3 +1,2 @@
-import os
-import sys
-PROJ_DIR = os.path.dirname(os.path.realpath(__file__))
+from pathlib import Path
+PROJ_DIR = Path(__file__).parent.resolve()

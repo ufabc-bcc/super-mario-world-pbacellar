@@ -2,10 +2,12 @@
 url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
+PIPENV_VERBOSITY = -1
 
 [packages]
 gym-retro = "*"
 neat-python = "*"
+opencv-python = "*"
 
 [dev-packages]
 graphviz = "*"
@@ -17,5 +19,31 @@ moviepy = "*"
 python_version = "3.8"
 
 [scripts]
-main = "python3 -u super-intelligent-mario"
-render = "python3 -u scripts/render.py"
+#
+# ALL SCRIPTS MUST BE RUN THE SAME DIR AS THIS PIPFILE)
+#
+
+# tain accepts argument `parallel` to use multi cores
+train               =   "python3 -u super-intelligent-mario train"
+
+# play accept argument `file` to specify which file to use
+play                =   "python3 -u super-intelligent-mario play"
+
+# play notable_genoms from every generation
+play_notable        =   "python3 -m super-intelligent-mario.scripts.play_notable_pkl"
+
+# cleans training data, excpet Winner (cleans bk2 recordings and checkpoints!)
+clean               =   "super-intelligent-mario/scripts/clean_training.sh"
+
+# render bk2 files
+render              =   "python3 -u super-intelligent-mario/scripts/render_movies.py -i super-intelligent-mario/results/recordings/"
+render_custom       =   "python3 -u super-intelligent-mario/scripts/render_movies.py"
+
+# convert bk2 to mp4
+# takes as argument the .bk2 file to convert
+makemp4             =   "python3 super-intelligent-mario/scripts/bk2_to_mp4.py"
+
+
+# DEV ONLY:
+# profiles code using custom script
+profile             =   "python-profile super-intelligent-mario/__main__.py train parallel"

@@ -12,6 +12,7 @@ gym-retro==0.8.0
 gym==0.18.0; python_version >= '3.6'
 neat-python==0.92
 numpy==1.20.2; python_version >= '3.7'
+opencv-python==4.5.1.48
 pillow==7.2.0; python_version >= '3.5'
 pyglet==1.5.0
 scipy==1.6.2; python_version < '3.10' and python_version >= '3.7'
