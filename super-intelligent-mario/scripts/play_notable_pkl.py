@@ -54,7 +54,8 @@ worst.sort(key=key)
 
 if len(sys.argv) <= 1:
     print("INPUT ERROR:")
-    print("specify what to play, 'best', or 'worst'")
+    print("specify folder")
+    print("specify what to play, 'best' or 'worst'")
     exit(1)
 
 speed = 4
@@ -64,7 +65,8 @@ if len(sys.argv) > 2:
 
 if sys.argv[1] not in ["best", "worst"]:
     print("UNKNOWN OPTION:")
-    print("specify what to play, 'best', or 'worst'")
+    print("specify what to play, 'best' or 'worst'")
+    exit(1)
 
 viewer = rendering.SimpleImageViewer()
 transition = zeros((224, 256, 3))

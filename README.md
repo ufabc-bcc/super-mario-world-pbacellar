@@ -77,7 +77,7 @@ Além do arquivo, função `play` também aceita como parâmetro opcional a velo
 
 ## Melhor genoma
 
-O melhor genoma treinado até agora é o `winner.pkl` e encontra-se na pasta `best_winner_results`, junto com statisticas de seu treinamento, checkpoints e genoams notáveis do treinamento (dica, é possível acompanhar evolução com um dos scripts abaixo) 
+O melhor genoma treinado até agora é o `winner.pkl` e encontra-se na pasta `best_winner_results`, junto com statisticas de seu treinamento, checkpoints e genoams notáveis do treinamento (dica, é possível acompanhar evolução com um dos scripts abaixo)
 
 ## Scripts
 
