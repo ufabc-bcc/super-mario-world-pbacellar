@@ -94,10 +94,10 @@ if sys.argv[1] == "best":
         play(b, timeout=False, viewer=viewer, env=env, speed=speed)
         
         # if playback is recording files to bk2 format, this converts them to mp4)
-        # bk2_file="SuperMarioWorld-Snes-YoshiIsland2-0000{:02}.bk2".format(i)
-        # command = "pipenv run makemp4 super-intelligent-mario/results/recordings/{}".format(bk2_file)
-        # os.system(command)
-        # i+=1
+        bk2_file="SuperMarioWorld-Snes-YoshiIsland2-0000{:02}.bk2".format(i)
+        command = "pipenv run makemp4 super-intelligent-mario/results/recordings/{}".format(bk2_file)
+        os.system(command)
+        i+=1
 if sys.argv[1] == "worst":
     for w in worst:
         play(w, timeout=False, viewer=viewer, env=env, speed=speed)
