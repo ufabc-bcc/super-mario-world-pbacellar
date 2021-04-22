@@ -8,9 +8,32 @@ RA 11046713
 
 github: [pbacellar](https://github.com/pbacellar)
 
+## TL;DR:
+
+Video [https://youtu.be/w46w_6PJ0DY](https://youtu.be/w46w_6PJ0DY)
+
+Todos os comandos a partir da raiz do repo:
+
+* ```pip install -r requirements.txt```
+
+* play
+  * ```python3 -u super-intelligent-mario play [ARQUIVO.PKL] [VELOCIDADE]```<br>
+    (Winner eh o super-intelligent-mario/best_winner_results/winner.pkl) (velocidade padrao eh 2)
+
+* train
+  * ```python3 -u super-intelligent-mario train``` ou ```python3 -u super-intelligent-mario train parallel```<br>
+    (da uma olhada na pasta results depois) (aqui leva em média 22 minutos para treinar um vencedor)
+
+* roda os melhores ou piors
+  * ```python3 -m super-intelligent-mario.scripts.play_notable_pkl [BEST|WORST] [velocidade]```<br>
+    (roda isso depois de treinar ou depois de um tempo treinando)
+
+
 ## Descrição
 
 Este projeto utiliza o algorítmo NEAT implementado por CodeReclaimenrs ([github](https://github.com/CodeReclaimers/neat-python)) para desenvolver um agente inteligente capaz de vencer a fazer YoshiIsland2 do jogo Super Mario World do SNES.
+
+Video de apresentação: [https://youtu.be/w46w_6PJ0DY](https://youtu.be/w46w_6PJ0DY)
 
 ## Dependências
 
@@ -18,7 +41,7 @@ Este projeto usa NEAT-Python 0.92, gym-retro 0.8.0 e opencv-python 4.5.1.48.
 
 Para instalar todas as dependências, rode, na raiz do repositório:
 
-```install -r requirements.txt```
+```pip install -r requirements.txt```
 
 ou
 
