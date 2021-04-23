@@ -64,7 +64,7 @@ def play(file=None, timeout=True, viewer=None, env = None, speed=2):
             print("Starting in {}...".format(i))
             sleep(1)
         print("Starting!")
-    train_memory.eval_genome(winner_genome, config, env, render_game=False, report=False, speed=speed, viewer=viewer)
+    train_memory.eval_genome(winner_genome, config, env, render_game=True, report=True, speed=speed, viewer=viewer)
     #train_screen.eval_genome(winner_genome, config, env, render_game=True, report=True, speed=speed, viewer=viewer)
 
 
