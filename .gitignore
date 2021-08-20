@@ -4,10 +4,12 @@ resources
 profs_reference
 *.code-workspace
 .markdownlint.json
+video_report.mp4
+__pycache__/
+
 
 # neat-examples/
 # tests/
-# __pycache__/
 # resources/
 # sample-reference-agents/bk2/
 # .vscode/
