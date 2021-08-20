@@ -5,9 +5,9 @@ name = "pypi"
 PIPENV_VERBOSITY = -1
 
 [packages]
-gym-retro = "*"
-neat-python = "*"
-opencv-python = "*"
+gym-retro = "0.8.0"
+neat-python = "0.92"
+opencv-python = "4.5.1.48"
 
 [dev-packages]
 graphviz = "*"
