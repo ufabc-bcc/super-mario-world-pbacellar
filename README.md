@@ -6,7 +6,8 @@ Este projeto foi desenvolvido para a disciplina de Inteligência Artificial da U
 
 Utilizo o algorítmo NEAT, implementado por [CodeReclaimers](https://github.com/CodeReclaimers/neat-python) para desenvolver um agente inteligente capaz de vencer a fase YoshiIsland2 do jogo Super Mario World do SNES.
 
-[video](res/Winner.mp4)
+https://user-images.githubusercontent.com/20764763/130303497-9c42ed9a-672a-45b3-bd56-072c2b84bab1.mp4
+
 
 ## Dependências
 
@@ -41,6 +42,8 @@ O projeto foi desenvolvido em um abiente virtual isolado usando a ferramente [pi
 Todos os comandos devem ser rodados na raíz do repositório (onde está o arquivo pipfile).
 
 ### **Treinamento**
+
+https://user-images.githubusercontent.com/20764763/130303546-aaa074db-efc3-4306-a2e1-a81c8ca487cc.mp4
 
 Para treinar um agente novo do zero:
 
