@@ -1,6 +1,5 @@
 .vscode
 neat-examples
-resources
 profs_reference
 *.code-workspace
 .markdownlint.json

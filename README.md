@@ -1,44 +1,16 @@
-# Projeto 2: Super Mario World - Inteligência Artificial - 2021.Q1
-
-Feito por:
-
-Pedro Braga dos Santos Bacellar
-
-RA 11046713
-
-github: [pbacellar](https://github.com/pbacellar)
-
-## TL;DR:
-
-Video [https://youtu.be/w46w_6PJ0DY](https://youtu.be/w46w_6PJ0DY)<br>
-(Oops, soh percebi depois que a janela do playback do mario ficou fora do video...)
-
-Todos os comandos a partir da raiz do repo:
-
-* ```pip install -r requirements.txt```
-
-* play
-  * ```python3 -u super-intelligent-mario play [ARQUIVO.PKL] [VELOCIDADE]```<br>
-    (Winner eh o super-intelligent-mario/best_winner_results/winner.pkl) (velocidade padrao eh 2)
-
-* train
-  * ```python3 -u super-intelligent-mario train``` ou ```python3 -u super-intelligent-mario train parallel```<br>
-    (da uma olhada na pasta results depois) (aqui leva em média 22 minutos para treinar um vencedor)
-
-* roda os melhores ou piors
-  * ```python3 -m super-intelligent-mario.scripts.play_notable_pkl [BEST|WORST] [velocidade]```<br>
-    (roda isso depois de treinar ou depois de um tempo treinando)
-
+# Super Mario World IA
 
 ## Descrição
 
-Este projeto utiliza o algorítmo NEAT implementado por CodeReclaimenrs ([github](https://github.com/CodeReclaimers/neat-python)) para desenvolver um agente inteligente capaz de vencer a fazer YoshiIsland2 do jogo Super Mario World do SNES.
+Este projeto foi desenvolvido para a disciplina de Inteligência Artificial da UFABC, ministrada pelo professor [Fabricio Olivetti](https://github.com/folivetti)
 
-Video de apresentação: [https://youtu.be/w46w_6PJ0DY](https://youtu.be/w46w_6PJ0DY)
+Utilizo o algorítmo NEAT, implementado por [CodeReclaimers](https://github.com/CodeReclaimers/neat-python) para desenvolver um agente inteligente capaz de vencer a fase YoshiIsland2 do jogo Super Mario World do SNES.
+
+[video](res/Winner.mp4)
 
 ## Dependências
 
-Este projeto usa NEAT-Python 0.92, gym-retro 0.8.0 e opencv-python 4.5.1.48.
+Esse projeto precisa de python 3.8 (talvez funcione com 3.6 e 3.7) e usa NEAT-Python 0.92, gym-retro 0.8.0 e opencv-python 4.5.1.48.
 
 Para instalar todas as dependências, rode, na raiz do repositório:
 
@@ -46,43 +18,53 @@ Para instalar todas as dependências, rode, na raiz do repositório:
 
 ou
 
+```pipenv install```
+
+ou
+
 ```pipenv install -r requirements.txt```
+
+Você também vai precisar instalar a rom do jogo no ambiente do gym retro:
+
+```python3 -m retro.import rom.sfc```
+
+Alternativamente, copie `rom.sfc` para o diretório ```site-packages/retro/data/stable/SuperMarioWorld-Snes/```
+
+* Se você usa pipenv, deve estar em
+
+  ```~/.local/share/virtualenvs/super-mario-world-XXXXXXXXX/lib/python3.8/site-packages/retro/data/stable/SuperMarioWorld-Snes/```
 
 ## Instruções de uso
 
 O projeto foi desenvolvido em um abiente virtual isolado usando a ferramente [pipenv](https://pipenv.pypa.io/en/latest/) e seu uso é recomendado (por causa dos scripts, veja arquivo pipfile), mas não necessário para rodar este projeto.
 
-Todos os comandos devem ser rodados na raíz do repositório.
+Todos os comandos devem ser rodados na raíz do repositório (onde está o arquivo pipfile).
 
-### Treinamento
+### **Treinamento**
 
 Para treinar um agente novo do zero:
 
-Sem usar paralelismo:
+* Sem usar paralelismo:
 
-* ```python3 -u super-intelligent-mario train```
-* ```pipenv run train```
+  * ```python3 -u super-intelligent-mario train```
+  * ```pipenv run train```
 
-Usando paralelismo para acelerar o processamento:
+* Com paralelismo:
 
-* ```python3 -u super-intelligent-mario train parallel```
-* ```pipenv run train parallel```
+  * ```python3 -u super-intelligent-mario train parallel```
+  * ```pipenv run train parallel```
 
-O treinamento salva na pasta results:
+O treinamento em paralelo leva em média 20 minutos (para mim) e salva na pasta results:
 
-* checkpoints de cada geração (checkpoints/)
-* os melhores e piores genomas de cada geração (notable_genomes/)
-* (opcional) gravações no formato bk2 de todas as simulações de todos os individuos
+* checkpoints de cada geração (`checkpoints/`)
+* os melhores e piores genomas de cada geração (`notable_genomes/`)
+* (opcional) gravações no formato `bk2` de todas as simulações de todos os individuos
   * Para habilitar isso, é preciso descomentar uma linha na chamada da função ```retro.make``` e também algumas linhas que a precedem:
     * ```# record=os.path.join(PROJ_DIR, recording_dir)```
     * ```# recording_dir = pathlib.Path(PROJ_DIR).joinpath("results", "recordings", str(generation_count), str(genome_count))```
     * ```# pathlib.Path(recording_dir).mkdir(parents=True, exist_ok=True)```
 
-O treinamento `train_memory` padrão usa como input para a rede neural uma pequena parcela de informações (chão, inigmos, obstáculos) obtidas da memória RAM do jogo através da biblioteca fornecida pelo professor `rominfo.py` e levemente alterada por mim.
-
-Há também a opção treinar o agente com a tela do jogo com resolução reduzida (`train_screen`). Para isso, basta alterar `train_memory...` na `main` para `train_screen...`
-
-Para retomar uma sessão de treinamento, é preciso alterar as seguintes linhas, descomentando o que está comentado e comentando o que não está, além de especificar qual o checkpoint que deve ser usado:
+Caso interrompa um sessão de treinamento no meio, é possível recomçar o treinamento usando o mesmo comando. Para isso, na seção abaixo, no `train_memory.py` ou `train_screen.py`, altere o código abaixo, inserindo o checkpoint que deseja restaurar
 
 ```python
 p = neat.Population(config)
@@ -90,20 +72,34 @@ p = neat.Population(config)
 # eval_genomes.gen_count = 24
 ```
 
-### Reprodução
+para
+
+```python
+#p = neat.Population(config)
+p = neat.Checkpointer.restore_checkpoint(pathlib.Path(PROJ_DIR).joinpath("results","checkpoints", "SEU-CHECKPOINT-DESEJADO")) # insira o checkpoint que deseja restaurar
+eval_genomes.gen_count = 24
+```
+
+**O treinamento padrão** (módulo `train_memory.py`) usa como input para a rede neural uma pequena parcela de informações (chão, inimigos, obstáculos) obtidas da memória RAM do jogo através da biblioteca fornecida pelo professor `rominfo.py` e levemente alterada por mim.
+
+**O treinamento alternativo** (módulo `train_screen.py`) se baseia na tela do jogo com resolução reduzida. Esse modo não é recomendado, pois demora muito. Para treinar dessa forma, basta alterar no arquivo `__main__.py` as instâncias de `train_memory` para `train_screen`
+
+### **Reprodução**
 
 Para reproduzir um genoma use:
 
 * ```python3 -u super-intelligent-mario play [ARQUIVO.PKL] [VELOCIDADE]```
 * ```pipenv run play [ARQUIVO.PKL] [VELOCIDADE]```
 
-Além do arquivo, função `play` também aceita como parâmetro opcional a velocidade de reprodução (padrão é 2)
+Além do arquivo, função `play` também aceita como parâmetro opcional a velocidade de reprodução (padrão é 2, tente usar 1 ou 10)
 
-## Melhor genoma
+## Melhor genoma (até agora)
 
-O melhor genoma treinado até agora é o `winner.pkl` e encontra-se na pasta `best_winner_results`, junto com statisticas de seu treinamento, checkpoints e genoams notáveis do treinamento (dica, é possível acompanhar evolução com um dos scripts abaixo)
+O melhor genoma treinado até agora (por mim) é o `winner.pkl` e encontra-se na pasta `best_winner_results` para fins de exemplo. Na mesma pasta, há vídeos de seu treinamento e desempenho, estatísticas de seu treinamento, checkpoints e genoams notáveis do treinamento (dica, é possível acompanhar evolução com um dos scripts abaixo)
 
-## Scripts
+## Scripts (fase alpha)
+
+Na pasta `scripts/`
 
 * `play_notable_pkl`
 
@@ -160,6 +156,6 @@ O melhor genoma treinado até agora é o `winner.pkl` e encontra-se na pasta `be
     ├── winner.pkl
     ├── results
     │       └── ...
-    ├── best_winner_results
+    ├── best_winner_results         # Exemplo de um vencedor
     │       └── ...
 ```
