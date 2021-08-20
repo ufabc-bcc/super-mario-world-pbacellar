@@ -374,7 +374,7 @@ def eval_genome(
 def eval_genomes(genomes, config):
     # kep track of genreations across function calls
     if not hasattr(eval_genomes, "gen_count"):
-        eval_genomes.eval_genomes.gen_count = 0
+        eval_genomes.gen_count = 0
 
     # setup recording
     # recording_dir = pathlib.Path(PROJ_DIR).joinpath("results", "recordings", str(eval_genomes.gen_count))
