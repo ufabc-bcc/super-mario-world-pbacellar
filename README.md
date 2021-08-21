@@ -2,9 +2,9 @@
 
 ## Descrição
 
-Este projeto foi desenvolvido para a disciplina de Inteligência Artificial da UFABC, ministrada pelo professor [Fabricio Olivetti](https://github.com/folivetti)
+Este projeto foi desenvolvido para a disciplina de Inteligência Artificial da UFABC, ministrada pelo professor [Fabrício Olivetti](https://github.com/folivetti)
 
-Utilizo o algorítmo NEAT, implementado por [CodeReclaimers](https://github.com/CodeReclaimers/neat-python) para desenvolver um agente inteligente capaz de vencer a fase YoshiIsland2 do jogo Super Mario World do SNES.
+Utilizo o algoritmo NEAT, implementado por [CodeReclaimers](https://github.com/CodeReclaimers/neat-python) para desenvolver um agente inteligente capaz de vencer a fase YoshiIsland2 do jogo Super Mario World do SNES.
 
 https://user-images.githubusercontent.com/20764763/130303497-9c42ed9a-672a-45b3-bd56-072c2b84bab1.mp4
 
@@ -37,9 +37,9 @@ Alternativamente, copie `rom.sfc` para o diretório ```site-packages/retro/data/
 
 ## Instruções de uso
 
-O projeto foi desenvolvido em um abiente virtual isolado usando a ferramente [pipenv](https://pipenv.pypa.io/en/latest/) e seu uso é recomendado (por causa dos scripts, veja arquivo pipfile), mas não necessário para rodar este projeto.
+O projeto foi desenvolvido em um ambiente virtual isolado usando a ferramente [pipenv](https://pipenv.pypa.io/en/latest/) e seu uso é recomendado (por causa dos scripts, veja arquivo pipfile), mas não necessário para rodar este projeto.
 
-Todos os comandos devem ser rodados na raíz do repositório (onde está o arquivo pipfile).
+Todos os comandos devem ser rodados na raiz do repositório (onde está o arquivo pipfile).
 
 ### **Treinamento**
 
@@ -57,17 +57,17 @@ Para treinar um agente novo do zero:
   * ```python3 -u super-intelligent-mario train parallel```
   * ```pipenv run train parallel```
 
-O treinamento em paralelo leva em média 20 minutos (para mim) e salva na pasta results:
+O treinamento em paralelo leva em média 20 minutos (para mim) e salva na pasta `results`:
 
 * checkpoints de cada geração (`checkpoints/`)
 * os melhores e piores genomas de cada geração (`notable_genomes/`)
-* (opcional) gravações no formato `bk2` de todas as simulações de todos os individuos
+* (opcional) gravações no formato `bk2` de todas as simulações de todos os indivíduos
   * Para habilitar isso, é preciso descomentar uma linha na chamada da função ```retro.make``` e também algumas linhas que a precedem:
     * ```# record=os.path.join(PROJ_DIR, recording_dir)```
     * ```# recording_dir = pathlib.Path(PROJ_DIR).joinpath("results", "recordings", str(generation_count), str(genome_count))```
     * ```# pathlib.Path(recording_dir).mkdir(parents=True, exist_ok=True)```
 
-Caso interrompa um sessão de treinamento no meio, é possível recomçar o treinamento usando o mesmo comando. Para isso, na seção abaixo, no `train_memory.py` ou `train_screen.py`, altere o código abaixo, inserindo o checkpoint que deseja restaurar
+Caso interrompa uma sessão de treinamento no meio, é possível recomeçar o treinamento usando o mesmo comando. Para isso, na seção abaixo, no `train_memory.py` ou `train_screen.py`, altere o código abaixo, inserindo o checkpoint que deseja restaurar
 
 ```python
 p = neat.Population(config)
@@ -98,7 +98,7 @@ Além do arquivo, função `play` também aceita como parâmetro opcional a velo
 
 ## Melhor genoma (até agora)
 
-O melhor genoma treinado até agora (por mim) é o `winner.pkl` e encontra-se na pasta `best_winner_results` para fins de exemplo. Na mesma pasta, há vídeos de seu treinamento e desempenho, estatísticas de seu treinamento, checkpoints e genoams notáveis do treinamento (dica, é possível acompanhar evolução com um dos scripts abaixo)
+O melhor genoma treinado até agora (por mim) é o `winner.pkl` e encontra-se na pasta `best_winner_results` para fins de exemplo. Na mesma pasta, há vídeos de seu treinamento e desempenho, estatísticas de seu treinamento, checkpoints e genomas notáveis do treinamento (dica, é possível acompanhar evolução com um dos scripts abaixo)
 
 ## Scripts (fase alpha)
 
@@ -106,16 +106,16 @@ Na pasta `scripts/`
 
 * `play_notable_pkl`
 
-    Após rodar um treinamento, é possível reprodozuir todos os melhores ou piores genomas para acompanhar a evolução do agente. O script reproduz do primeiro genoma ao último
+    Após rodar um treinamento, é possível reproduzir todos os melhores ou piores genomas para acompanhar a evolução do agente. O script reproduz do primeiro genoma ao último
   * ```python3 -m super-intelligent-mario.scripts.play_notable_pkl [BEST|WORST] [velocidade]```
   * ```pipenv run play_notable [best|worst] [velocidade]```
 
 * `render_movies`
 
-    Caso tenha gravado toda a sessão de treino em arquivos bk2, esse script possui diversas opções para reproduçao
-    Como não tem sido muito usado, para informações de uso, veja documentação dentro do próprio script.
+    Caso tenha gravado toda a sessão de treino em arquivos bk2, esse script possui diversas opções para reprodução
+    Como não tem sido muito usado, para informações de uso, veja documentação no próprio script.
 
-    O exemplo abaixo reproduz todos os arquivos bks na pasta recordings em ordem (do prieiro ao último)
+    O exemplo abaixo reproduz todos os arquivos bks na pasta recordings em ordem (do primeiro ao último)
   * ```python3 -u super-intelligent-mario/scripts/render_movies.py -i super-intelligent-mario/results/recordings/```
   * ```pipenv run render```
 
@@ -125,7 +125,7 @@ Na pasta `scripts/`
 
 * `clean_training.sh`
 
-    limpa uma sessão de treinamento, esvaziando as pastas `checkpoints`, `recordings` e `notable_genomes`, através de mini scripts dentro das próprias pastas (caso queira esvaziá-las individualmente)
+    limpa uma sessão de treinamento, esvaziando as pastas `checkpoints`, `recordings` e `notable_genomes`, através de mini scripts nas próprias pastas (caso queira esvaziá-las individualmente)
   * ```super-intelligent-mario/scripts/clean_training.sh```
   * ```pipenv run clean```
 
