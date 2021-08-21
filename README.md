@@ -1,4 +1,4 @@
-# Super Mario World IA
+# Super Intelligent Mario
 
 ## Descrição
 
